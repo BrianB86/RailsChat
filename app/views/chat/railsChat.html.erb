@@ -1,0 +1,23 @@
+<main>
+  <h1 class="text-center">Welcome (Add username here) to Rails Chat!</h1>
+  <p class="lead text-center">Enjoy your stay and make some friends.</p>
+  <div class="row">
+    <div class="list-group col-md-2 col-sm-offset-1">
+      <button type="button" class="list-group-item">Test</button>
+      <button type="button" class="list-group-item">Test2</button>
+    </div>
+    <div class="well well-lg col-md-6" id="chat">
+      <!-- Add user has connected and user has left the chat messages.-->
+    </div>
+  </div>
+  <form id="message">
+    <div class="container-fluid col-md-offset-2">
+        <div class="col-md-10">
+          <textarea class="form-control" placeholder="Say Hello..." maxlength="50" required rows="5" wrap="hard" autofocus="" id="message"></textarea>
+          <div id="chatButton">
+            <button class="btn btn-info" type="submit" id="messageSubmit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+</main>

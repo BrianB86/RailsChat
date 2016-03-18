@@ -1,4 +1,4 @@
 class RailsChatController < ApplicationController
-  def home
+  def chatMessage
   end
 end
