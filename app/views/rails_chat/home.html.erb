@@ -8,24 +8,29 @@
         </div>
         <div class="modal-body">
           <h5 id="createUserFormHeading"><strong>Account Setup:</strong></h5>
-          <form id="createUser">
+          <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
               <div>
-                <label for="UserName">User Name:</label>
-                <input type="text" class="form-control" id="createUserName" placeholder="UserName" style="width: 55%;">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %>
               </div>
               <div>
-                <label for="Password">Password:</label>
-                <input type="password" class="form-control" id="createPassword" placeholder="Password" style="width: 45%;">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
               </div>
-            </form>
+              <div>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <%= f.submit "Create my account", class: "btn btn-primary" %>
         </div>
       </div>
     </div>
   </div>
+  <% end %>
   <form id="signIn">
     <h2 class="text-center" id="top">Sign In and join the conversation.</h2>
       <div class="col-md-offset-5">
