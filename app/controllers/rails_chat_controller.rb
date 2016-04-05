@@ -1,4 +1,6 @@
 class RailsChatController < ApplicationController
-  def chatMessage
+
+  def home
+    @user = User.new #find out implications of keeping this.
   end
 end

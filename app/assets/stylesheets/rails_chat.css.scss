@@ -1,0 +1,55 @@
+// Place all the styles related to the RailsChat controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#Join{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#top{
+  margin-bottom: 40px;
+}
+
+#newUser{
+  margin-bottom: 60px;
+  margin-top: 15px;
+}
+
+#user_name{
+  width: 55%;
+}
+
+#user_password{
+  width: 45%;
+}
+
+#session_name{
+  width: 35%;
+}
+
+#session_password{
+  width: 25%;
+  margin-bottom: 15px
+}
+
+#user_password_confirmation{
+  width: 45%;
+}
+
+#createUserFormHeading{
+  padding-bottom: 10px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  .form-control {
+    color: #d9534f;
+  }
+}
