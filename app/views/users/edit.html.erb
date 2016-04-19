@@ -1,0 +1,25 @@
+<main>
+<% if !logged_in? %>
+  <%= render 'shared/login_menu.html.erb' %>
+  <% else %>
+  <div class="row">
+    <h2 class="text-center">Edit <%= current_user.name%>'s profile</h2>
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit "Save changes", class: "btn btn-primary" %>     <%= link_to "Return to Chat", railsChat_path, class: 'btn btn-primary'%>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</main>

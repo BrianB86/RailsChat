@@ -1,0 +1,27 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+<div class="modal fade" id="loginUser" tabindex="-1" role="dialog" aria-labelledby="loginUserLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="loginUserLabel">Please Log into RailsChat!</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:session, url: login_path) do|f| %>
+            <div>
+              <%= f.label :Username %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

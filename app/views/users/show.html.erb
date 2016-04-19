@@ -1,4 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<p>Username: <%= @user.name %> </p>
+<% provide(:title, @user.name) %>
+<main>
+<% if !logged_in? %>
+  <%= render 'shared/login_menu.html.erb' %>
+  <% else %>
+  <div class="row">
+    <h2 class="text-center"><%= @user.name %>'s profile information</h2>
+    <div class="col-md-6 col-md-offset-3">
+        <h3>Name:   <%= @user.name %></h3>
+        <%= link_to "Return to Chat", railsChat_path, class: 'btn btn-primary', id: 'Return'%>
+        <% if current_user.admin? %>
+          <%= link_to "Delete User", @user, method: :delete, data: { confirm: "Delete?" }, class: 'btn btn-danger', id: 'DeleteUser'%>
+        <% end %>
+    </div>
+  </div>
+  <% end %>
+</main>

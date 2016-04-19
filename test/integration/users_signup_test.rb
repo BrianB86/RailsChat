@@ -11,7 +11,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "Valid signup information" do
     assert_difference 'User.count', 1 do
-      post_via_redirect_ users_path, user: { name: Brian, password: "Woody123", password_confirmation: "Woody123"}
+      post_via_redirect users_path, user: { name: "Brian", password: "Woody123", password_confirmation: "Woody123"}
     end
+    assert_template 'chat/railsChat'
+    assert is_logged_in?
   end
 end
