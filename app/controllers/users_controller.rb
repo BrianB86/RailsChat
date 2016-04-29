@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  # possible add the login popup when a user gets to a page that needs login? Yes make a shared layout for it like the errors.
-  # add to the user's show page all user info and add the delete functionality there but only availavble to that user or admins.
+  before_action :admin_user, only: [:destroy, :index]
   attr_accessor :name
+
+  def index
+    @users = User.paginate(page: params[:page])
+  end
 
   def show
     @user = User.find(params[:id])
@@ -16,7 +19,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
-        log_in @user
+        log_in(@user)
         redirect_to railsChat_path
       else
         render 'rails_chat/home'
@@ -30,12 +33,13 @@ class UsersController < ApplicationController
     def destroy
       User.find(params[:id]).destroy
       flash[:success] = "The user has been deleted."
-      redirect_to railsChat_path
+      redirect_to(users_path)
     end
 
     def update
       @user = User.find(params[:id])
       if @user.update_attributes(user_params)
+        @user.update(user_action_time_stamp: DateTime.now)
         redirect_to edit_user_path(@user)
         flash[:success] = "Your Profile has been updated."
       else
@@ -59,4 +63,9 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         redirect_to(edit_user_path(current_user)) unless @user == current_user
       end
+
+      def admin_user
+        redirect_to(root_url) unless current_user.admin?
+      end
+
   end

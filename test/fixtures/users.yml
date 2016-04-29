@@ -2,6 +2,7 @@
 TestUser2:
   name: TestUser2
   password_digest: <%= User.digest('Test123') %>
+  admin: true
 
 TestUser3:
   name: TestUser3

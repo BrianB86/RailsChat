@@ -1,4 +1,21 @@
 <main>
+  <div class="modal fade" id="sendPM" tabindex="-1" role="dialog" aria-labelledby="sendPMLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="sendPMLabel">Send Private Message</h4>
+        </div>
+        <div class="modal-body">
+          <h5 id="sendPMFormHeading"><strong>Send Private Message.</strong></h5>
+          <!--Add Private Message form here to send private messages.-->
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,6 +27,9 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Profile", edit_user_path(current_user)%></li>
         <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% if current_user.admin? %>
+          <li><%= link_to "All Users",users_path%></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -17,14 +37,15 @@
   <h1 class="text-center">Welcome to Rails Chat!</h1>
   <p class="lead text-center">Enjoy your stay and make some friends.</p>
   <div class="row">
-    <div class="list-group col-md-2 col-sm-offset-1">
-      <button type="button" class="list-group-item">Test</button>
-      <button type="button" class="list-group-item">Test2</button>
-    </div>
-    <div class="well well-lg col-md-6" id="chat">
-      <!-- Add user has connected and user has left the chat messages.-->
+    <div class="list-group col-md-2 col-sm" id="user-list">
+        <% @chatUsers.each do |users| %>
+        <button class="list-group-item"> <%= link_to users.name %> </button>
+        <% end %>
     </div>
   </div>
+  <div class="container-fluid">
+    <div class="well well-lg col-lg-offset-2" id="chat">
+  </div>       <!-- Add user has connected and user has left the chat messages. well might be better as an inactive text area-->
   <form id="message">
     <div class="container-fluid col-md-offset-2">
         <div class="col-md-10">
@@ -34,5 +55,6 @@
           </div>
         </div>
       </div>
+    </div>
     </form>
 </main>

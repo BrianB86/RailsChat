@@ -4,6 +4,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
   def setup
       @user = users(:TestUser2)
+      @user2 = users(:TestUser3)
   end
 
   test "Invalid edit" do
@@ -18,16 +19,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
-    name = "testuser2"
-    patch user_path(@user), user: { name: name, password: "", password_confirmation: ""}
-    @user.reload
-    assert_equal name, @user.name.downcase
-  end
-
-  test "Forward user to thier own profile page" do
-    get edit_user_path(@user)
-    log_in_as(@user)
-    assert_redirected_to edit_user_path(@user)
     name = "testuser2"
     patch user_path(@user), user: { name: name, password: "", password_confirmation: ""}
     @user.reload

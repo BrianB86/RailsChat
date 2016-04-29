@@ -6,4 +6,5 @@ $(document).ready(function(){
   var path = window.location.pathname;
   if(path.indexOf("users") >= 0){
     $("#newUser").click();
+  }
 });
