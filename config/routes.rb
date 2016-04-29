@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   root 'rails_chat#home'
   get 'railsChat' => 'chat#railsChat'
+  get 'sessions/new'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
