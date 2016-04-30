@@ -44,8 +44,9 @@
     </div>
   </div>
   <div class="container-fluid col-lg-offset-2">
-    <textarea readonly rows="5" cols="108" wrap="hard" id="chat"></textarea>
+    <div class="well well-lg" id="chat"> <% @chatUsers.each do |userz| %> <ul> <%= userz.name %> </ul> <% end %></div>
   </div>
+
   <form id="message">
     <div class="container-fluid col-md-offset-2">
         <div class="col-md-10">

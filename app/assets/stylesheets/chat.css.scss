@@ -16,6 +16,9 @@ li {
 
 #chat{
   margin-bottom: 100px;
+  overflow-y: scroll;
+  max-width: 900px;
+  //max-height: 500px; possibly add when chat gets too big.
 }
 
 textarea{
