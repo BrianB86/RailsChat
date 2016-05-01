@@ -1,0 +1,5 @@
+<% broadcast "/railsChat/new" do %>
+  $("#chat").append("<%=j render(@message) %>");
+<% end %>
+$("#user-list").reset();
+$("#new_message").reset();

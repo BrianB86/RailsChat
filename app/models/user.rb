@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   PASSWORD_REGEX = /.*[0-9].*[\S]\z/i
   validates :password, presence: true, length: {minimum: 7}, format: { with: PASSWORD_REGEX,
     message: "The password must contain at least one number."}, allow_nil: true
-
-
+  has_many :chat_pms
+  has_many :chats
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 

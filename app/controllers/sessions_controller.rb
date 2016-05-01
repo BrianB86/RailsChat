@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #also destroy the user's public messages.
     log_out
     render 'rails_chat/home'
   end

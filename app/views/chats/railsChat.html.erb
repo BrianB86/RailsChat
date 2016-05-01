@@ -50,7 +50,7 @@
     <div class="col-md-10">
       <%= form_for(Chat.new, remote: true) do |message|%>
         <%= message.text_area(:message, {
-          class: 'form-control', placeholder: 'Say Hello...', required: true, rows: 5, wrap: 'hard', autofocus: true}) %>
+          class: 'form-control', placeholder: 'Say Hello...', maxlength: 50, required: true, rows: 5, wrap: 'hard', autofocus: true}) %>
         <%= message.submit "Submit", class: 'btn btn-info', id: 'messageSubmit'%>
       <% end %>
     </div>
