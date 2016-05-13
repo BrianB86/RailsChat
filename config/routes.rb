@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'private_messages/new'
+
   root 'rails_chat#home'
   get 'railsChat' => 'chats#railsChat'
   get 'sessions/new'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :users
   resources :chats
-  resources :chat_pms
+  resources :chat_pms, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"

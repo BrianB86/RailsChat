@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  message: MyText
-  created_at: MyString
+  message: "First!!!!"
+  created_at: <%= 2.hours.ago %>
   timestamp: MyString
 
 two:
-  message: MyText
-  created_at: MyString
+  message: "What is going on?"
+  created_at: <%= 20.minutes.ago %>
   timestamp: MyString
+
+three:
+  message: "nothing happening here."
+  created_at: <%= Time.zone.now %>

@@ -33,7 +33,7 @@
         <div class="modal-body">
           <h5 id="createUserFormHeading"><strong>Account Setup:</strong></h5>
             <%= form_for(@user) do |f| %>
-            <%= render 'shared/error_messages' %>
+            <%= render 'shared/error_messages', object: f.object %>
               <div>
                 <%= f.label :Username %>
                 <%= f.text_field :name, class: "form-control" %>

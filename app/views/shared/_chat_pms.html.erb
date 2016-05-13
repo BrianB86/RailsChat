@@ -1,0 +1,52 @@
+<div class="panel-group col-md-8 col-md-offset-3" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="privateMessagesHeading">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#privateMessages" aria-expanded="false" aria-controls="privateMessages">
+          Private Messages
+        </a>
+      </h4>
+    </div>
+    <div id="privateMessages" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="privateMessagesHeading">
+      <div class="panel-body">
+        <div class="panel-group" id="receivedMessagesAccordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="receivedMessagesHeading">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#receivedMessagesAccordion" href="#receivedMessages" aria-expanded="false" aria-controls="receivedMessages">
+                  Received Messages
+                </a>
+              </h4>
+            </div>
+            <div id="receivedMessages" class="panel-collapse collapse" role="tabpanel" aria-labelledby="receivedMessagesHeading">
+              <div class="panel-body">
+                <!--all private messages with user_id == to my user id and order by most recent-->
+              <% if @user.chat_pms.any?  %>
+                  <%= render @receive_chat_pms %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-group" id="sentMessagesAccordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="sentMessagesHeading">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sentMessagesAccordion" href="#sentMessages" aria-expanded="false" aria-controls="sentMessages">
+                  Sent Messages
+                </a>
+              </h4>
+            </div>
+            <div id="sentMessages" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sentMessagesHeading">
+              <div class="panel-body">
+                <% if @user.chat_pms.any?  %>
+                    <%= render @sent_chat_pms %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

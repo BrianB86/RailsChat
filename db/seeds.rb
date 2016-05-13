@@ -13,3 +13,10 @@ User.create!(name: "TestUser", password: 'Test123', password_confirmation: 'Test
   password = "Test123"
   User.create!(name: name, password: password, password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+49.times do
+  message = Faker::Lorem.sentence(5)
+  receiver = 1
+  users.each {|user| user.chat_pms.create!(message: message, receiver: receiver)}
+end

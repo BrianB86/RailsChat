@@ -8,18 +8,20 @@
         </div>
         <div class="modal-body">
           <h5 id="sendPMFormHeading"><strong>Send Private Message.</strong></h5>
-          <%= form_for(Chat.new, remote: true) do |message|%>
+          <%= form_for(@chat_pm) do |message|%> <!--make a it a remote call like Chat but just update the database nothing else besides a sent -->
+            <%= render 'shared/error_messages', object: message.object %>
             <%= message.text_area(:message, {
-              class: 'form-control', placeholder: 'Say Hello...', maxlength: 150, required: true, rows: 5, wrap: 'hard', autofocus: true}) %>
+              class: 'form-control', placeholder: 'Compose a new message...', maxlength: 150, required: true, rows: 5, wrap: 'hard', autofocus: true}) %>
+            <%= message.text_field(:receiver, { class: 'form-control', readonly: true} ) %> <!--maybe change to hidden value-->
             <%= message.submit "Submit", class: 'btn btn-info', id: 'PMSubmit'%>
           <% end %>
         </div>
-      </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +32,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Profile", edit_user_path(current_user)%></li>
-        <li><%= link_to "Private Messages", edit_user_path(current_user)%></li>
+        <li><%= link_to "Private Messages", user_path(current_user)%></li>
         <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% if current_user.admin? %>
           <li><%= link_to "All Users",users_path%></li>

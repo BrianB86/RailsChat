@@ -4,9 +4,10 @@ class CreateChatPms < ActiveRecord::Migration
       t.text :message
       t.string :created_at
       t.string :timestamp
-      t.references :user
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
+    add_index :chat_pms, [:user_id, :created_at]
   end
 end
