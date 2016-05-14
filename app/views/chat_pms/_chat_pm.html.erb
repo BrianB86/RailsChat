@@ -28,5 +28,5 @@
     Posted <%= time_ago_in_words(chat_pm.created_at) %> ago.
   </span>
   <%= link_to "Delete Message", chat_pm, method: :delete, data: { confirm: "Delete?" }, class: 'btn btn-danger', id: 'DeleteMessage'%>
-  <button class="btn btn-info">Reply</button>
+  <button class="btn btn-info" id="reply">Reply</button>
 </div>

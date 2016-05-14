@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#PMSubmit").click(function(){
+  $("#reply").click(function(){
     $("#sendPM").modal('toggle');
   });
 });
