@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(function(){
-  var faye = new Faye.Client('http://localhost:9292/faye'); //change url to production url when moved
+  var faye = new Faye.Client('https://secure-peak-48127.herokuapp.com/faye'); //change url to production url when moved
   faye.subscribe("/railsChat/new", function(data){
     eval(data);
   });
