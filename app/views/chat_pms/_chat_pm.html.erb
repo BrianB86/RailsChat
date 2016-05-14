@@ -7,11 +7,11 @@
       </div>
       <div class="modal-body">
         <h5 id="sendPMFormHeading"><strong>Send Private Message.</strong></h5>
-        <%= form_for(@chat_pm) do |message|%> <!--make a it a remote call like Chat but just update the database nothing else besides a sent -->
+        <%= form_for(@chat_pm) do |message|%>
           <%= render 'shared/error_messages', object: message.object %>
           <%= message.text_area(:message, {
             class: 'form-control', placeholder: 'Compose a new message...', maxlength: 150, required: true, rows: 5, wrap: 'hard', autofocus: true}) %>
-          <%= message.text_field(:receiver, { class: 'form-control', readonly: true, value: chat_pm.user.name} ) %> <!--maybe change to hidden value-->
+          <%= message.hidden_field(:receiver, {value: chat_pm.user.name} ) %>
           <%= message.submit "Submit", class: 'btn btn-info', id: 'PMSubmit'%>
         <% end %>
       </div>

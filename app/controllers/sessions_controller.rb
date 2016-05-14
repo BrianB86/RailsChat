@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
       redirect_to(railsChat_path)
     else
       flash.now[:danger] = "Invalid Username and Password combination."
-      @user = User.new #find out implications of keeping this.
+      @user = User.new
       render 'rails_chat/home'
     end
   end
 
-  def destroy #also destroy the user's public messages.
+  def destroy
     log_out
     render 'rails_chat/home'
   end

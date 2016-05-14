@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
 
   def railsChat
     redirect_to root_url unless logged_in?
-    @chatUsers = User.select(:name).where("user_action_time_stamp > ? AND login_notice = ?", DateTime.now - 15.minutes, true ) #maybe add find_each
+    @chatUsers = User.select(:name).where("user_action_time_stamp > ? AND login_notice = ?", DateTime.now - 15.minutes, true )
     @messages = Chat.all
     @chat_pm = current_user.chat_pms.build if logged_in?
   end

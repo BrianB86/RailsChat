@@ -20,7 +20,6 @@
             </div>
             <div id="receivedMessages" class="panel-collapse collapse" role="tabpanel" aria-labelledby="receivedMessagesHeading">
               <div class="panel-body">
-                <!--all private messages with user_id == to my user id and order by most recent-->
               <% if @user.chat_pms.any?  %>
                   <%= render @receive_chat_pms %>
               <% end %>
