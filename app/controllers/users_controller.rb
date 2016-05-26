@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @sent_chat_pms = @user.chat_pms.all
-    @receive_chat_pms = ChatPm.where(receiver: @user.name).all
+    @receive_chat_pms = ChatPm.where(receiver: @user.name)
     @chat_pm = current_user.chat_pms.build if logged_in?
 
   end

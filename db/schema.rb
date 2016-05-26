@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160508182314) do
     t.string   "timestamp"
     t.integer  "user_id"
     t.datetime "updated_at", null: false
-    t.integer  "receiver"
+    t.string   "receiver"
   end
 
   add_index "chat_pms", ["user_id", "created_at"], name: "index_chat_pms_on_user_id_and_created_at"

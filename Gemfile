@@ -40,6 +40,7 @@ gem 'bootstrap-sass'
 gem 'activesupport'
 gem 'faye'
 gem 'faye-rails'
+gem 'responders'
 gem 'thin'
 
 group :development do

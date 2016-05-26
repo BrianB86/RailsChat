@@ -1,0 +1,3 @@
+<% @chatUsers.each do |users| %>
+  <button class="list-group-item" onclick="privateMessage(this);"> <%= link_to users.name %> </button>
+<% end %>

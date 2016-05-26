@@ -27,7 +27,7 @@
     <div class="navbar-header">
       <ul class="navbar-brand"><%= current_user.name %></ul>
     </div>
-\    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Profile", edit_user_path(current_user)%></li>
         <li><%= link_to "Private Messages", user_path(current_user)%></li>
@@ -43,9 +43,7 @@
   <p class="lead text-center">Enjoy your stay and make some friends.</p>
   <div class="row">
     <div class="list-group col-md-2 col-sm" id="user-list">
-        <% @chatUsers.each do |users| %>
-        <button class="list-group-item"> <%= link_to users.name %> </button>
-        <% end %>
+      <%= render '/chats/user_list.html.erb' %>
     </div>
   </div>
   <div class="container-fluid col-lg-offset-2">

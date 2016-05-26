@@ -1,5 +1,4 @@
 <% broadcast "/railsChat/new" do %>
   $("#chat").append("<%=j render(@message) %>");
+  $('#user-list').html("<%=j render('user_list.html.erb') %>");
 <% end %>
-$("#user-list")[0].reset(); //not working
-$("#chat_message").val(" ");
